@@ -1,7 +1,7 @@
 sum = 0
+chk = (n) -> return (j for j in [1..n-1] when n%j == 0).reduce (t, s) -> t + s
 for i in [2..10000]
-	a = (j for j in [1..i-1] when i%j == 0).reduce (t, s) -> t + s
-	b = (j for j in [1..a-1] when a%j == 0).reduce (t, s) -> t + s
-	if i == b and a != b
+	a = chk(i) 
+	if a != i and i == chk(a) 
 		sum += a
 console.log sum
